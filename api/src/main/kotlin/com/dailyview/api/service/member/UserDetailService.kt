@@ -1,4 +1,4 @@
-package com.dailyview.api.service
+package com.dailyview.api.service.member
 
 import com.dailyview.domain.entity.MemberRepository
 import org.springframework.security.core.userdetails.UserDetails

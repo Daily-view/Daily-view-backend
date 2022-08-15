@@ -4,8 +4,20 @@ type Member {
     nickname: String!
 }
 
+type AuthToken {
+    token_type: String!
+    token: String!
+}
+
+"""Create member"""
 input CreateMemberInput {
     email: String!
     nickname: String!
+    password: String!
+}
+
+"""Member Login"""
+input LoginInput {
+    email: String!
     password: String!
 }
