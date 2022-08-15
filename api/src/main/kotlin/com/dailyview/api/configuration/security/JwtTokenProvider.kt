@@ -6,14 +6,13 @@ import io.jsonwebtoken.SignatureAlgorithm
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
+import org.springframework.security.core.Authentication
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.User
 import org.springframework.stereotype.Component
 import java.security.Key
-import java.util.*
+import java.util.Date
 import javax.servlet.http.HttpServletRequest
-import org.springframework.security.core.Authentication
-
 
 @Component
 class JwtTokenProvider(
@@ -21,9 +20,9 @@ class JwtTokenProvider(
     private val key: ByteArray
 ) {
     private val jwtKey: Key = Keys.hmacShaKeyFor(key)
-    private val BEARER_TYPE = "Bearer";
-    private val CLAIM_JWT_TYPE_KEY = "type";
-    private val CLAIM_AUTHORITIES_KEY = "authorities";
+    private val BEARER_TYPE = "Bearer"
+    private val CLAIM_JWT_TYPE_KEY = "type"
+    private val CLAIM_AUTHORITIES_KEY = "authorities"
 
     private val tokenValidTime = 30 * 60 * 1000L
 

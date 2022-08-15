@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
 
 buildscript {
     dependencies {
@@ -16,7 +17,7 @@ plugins {
     kotlin("kapt") version kotlinVersion apply false
     kotlin("plugin.spring") version kotlinVersion apply false
     kotlin("plugin.jpa") version kotlinVersion apply false
-    id("org.springframework.boot") version "2.5.3" apply false
+    id("org.springframework.boot") version "2.7.2" apply false
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
     id("org.jlleitschuh.gradle.ktlint") version "10.1.0" apply false
     id("org.jlleitschuh.gradle.ktlint-idea") version "10.1.0"
@@ -52,6 +53,12 @@ subprojects {
     group = "com.dailyview"
     version = "1.0-SNAPSHOT"
     java.sourceCompatibility = JavaVersion.VERSION_11
+
+    dependencyManagement {
+        imports {
+            mavenBom(SpringBootPlugin.BOM_COORDINATES)
+        }
+    }
 
     repositories {
         mavenCentral()
