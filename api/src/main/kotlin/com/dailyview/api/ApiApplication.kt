@@ -1,15 +1,12 @@
 package com.dailyview.api
 
+import com.dailyview.domain.DomainConfigurationLoader
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.autoconfigure.domain.EntityScan
 import org.springframework.boot.runApplication
-import org.springframework.context.annotation.ComponentScan
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories
+import org.springframework.context.annotation.Import
 
 @SpringBootApplication
-@ComponentScan(basePackages = ["com.dailyview"])
-@EnableJpaRepositories(basePackages = ["com.dailyview"])
-@EntityScan(basePackages = ["com.dailyview"])
+@Import(DomainConfigurationLoader::class)
 class ApiApplication
 
 fun main(args: Array<String>) {

@@ -80,7 +80,6 @@ subprojects {
         implementation("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
         implementation("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}")
-        implementation("org.springframework.boot:spring-boot-starter-data-redis")
         implementation("ch.qos.logback:logback-core:${logbackVersion}")
         implementation("ch.qos.logback:logback-classic:${logbackVersion}")
         implementation("ch.qos.logback:logback-access:${logbackVersion}")

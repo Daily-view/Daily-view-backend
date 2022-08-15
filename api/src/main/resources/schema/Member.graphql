@@ -1,0 +1,11 @@
+type Member {
+    id: ID!
+    email: String!
+    nickname: String!
+}
+
+input CreateMemberInput {
+    email: String!
+    nickname: String!
+    password: String!
+}

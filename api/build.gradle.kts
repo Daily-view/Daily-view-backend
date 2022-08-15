@@ -37,6 +37,5 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-security:2.7.2")
 
-    testImplementation(testFixtures(project(":domain")))
     testImplementation("com.netflix.graphql.dgs:graphql-dgs-client")
 }
