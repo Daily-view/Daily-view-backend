@@ -18,10 +18,10 @@ class MemberService(
 
     fun signup(input: CreateMemberInput): Boolean {
         if (memberRepository.existsByEmail(input.email)) {
-            throw BusinessException(ErrorCode.EMAIL_IS_DUPLICATED, "Email 이 중복입니다. email: ${input.email}")
+            throw BusinessException(ErrorCode.EMAIL_IS_DUPLICATED, "이메일이 중복입니다. email: ${input.email}")
         }
         if (memberRepository.existsByNickname(input.nickname)) {
-            throw BusinessException(ErrorCode.NICKNAME_IS_DUPLICATED, "Nickname 이 중복입니다. nickname: ${input.nickname}")
+            throw BusinessException(ErrorCode.NICKNAME_IS_DUPLICATED, "닉네임이 중복입니다. nickname: ${input.nickname}")
         }
         val member = Members(email = input.email, nickname = input.nickname, password = input.password)
         encoder.encode(member.password).also { member.password = it }
