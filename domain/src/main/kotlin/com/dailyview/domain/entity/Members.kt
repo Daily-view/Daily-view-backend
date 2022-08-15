@@ -13,9 +13,9 @@ class Members(
     @Column(length = 50, unique = true)
     val email: String,
     @Column(length = 10, unique = true)
-    val nickname: String,
+    var nickname: String,
     @Column(length = 20)
-    val password: String,
+    var password: String,
 ) {
 
     @Id
