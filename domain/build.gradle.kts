@@ -1,11 +1,5 @@
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
-val jar: Jar by tasks
-val bootJar: BootJar by tasks
-
-bootJar.enabled = false
-jar.enabled = true
-
 plugins {
     kotlin("kapt")
     kotlin("plugin.jpa")
@@ -45,4 +39,12 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+tasks.withType<Jar> {
+    enabled = true
+}
+
+tasks.withType<BootJar> {
+    enabled = false
 }

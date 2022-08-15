@@ -9,5 +9,4 @@ class DomainApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }
