@@ -1,5 +1,6 @@
 package com.dailyview.api.configuration.security
 
+import com.dailyview.api.service.auth.JwtDto
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
@@ -14,6 +15,8 @@ import java.security.Key
 import java.util.Date
 import javax.servlet.http.HttpServletRequest
 
+const val REFRESH_TOKEN_EXPIRES = 60 * 60 * 24 * 14 // 14 day
+
 @Component
 class JwtTokenProvider(
     @Value("\${jwt.key}")
@@ -26,17 +29,28 @@ class JwtTokenProvider(
 
     private val tokenValidTime = 30 * 60 * 1000L
 
-    fun createToken(authentication: Authentication): String {
+    fun generateTokenDto(authentication: Authentication): JwtDto {
+        val authorities = authentication.authorities.map { it.authority }
         val now = Date()
         val authoritiesString = authentication.authorities.joinToString(",")
-        return Jwts.builder()
+        val accessToken = Jwts.builder()
             .setSubject(authentication.name)
             .claim(CLAIM_JWT_TYPE_KEY, BEARER_TYPE)
-            .claim(CLAIM_AUTHORITIES_KEY, authoritiesString)
+            .claim(CLAIM_AUTHORITIES_KEY, authorities[0])
             .setIssuedAt(now)
             .setExpiration(Date(now.time + tokenValidTime))
             .signWith(jwtKey, SignatureAlgorithm.HS512)
             .compact()
+
+        val refreshToken = Jwts.builder()
+            .setSubject(authentication.name)
+            .setExpiration(Date(now.time + REFRESH_TOKEN_EXPIRES))
+            .claim(CLAIM_JWT_TYPE_KEY, BEARER_TYPE)
+            .claim(CLAIM_AUTHORITIES_KEY, authorities[0])
+            .setIssuedAt(now)
+            .signWith(jwtKey, SignatureAlgorithm.HS512)
+            .compact();
+        return JwtDto(tokenType = BEARER_TYPE, token = accessToken, refreshToken = refreshToken)
     }
 
     fun getAuthentication(token: String): Authentication {

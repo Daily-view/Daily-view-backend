@@ -1,5 +1,6 @@
 package com.dailyview.domain.entity
 
+import com.dailyview.domain.common.BaseTimeEntity
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -16,7 +17,7 @@ class Members(
     var nickname: String,
     @Column(length = 100)
     var password: String,
-) {
+) : BaseTimeEntity() {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
