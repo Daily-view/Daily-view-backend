@@ -3,7 +3,6 @@ package com.dailyview.api.service.member
 import com.dailyview.api.configuration.security.JwtTokenProvider
 import com.dailyview.api.exception.BusinessException
 import com.dailyview.api.exception.ErrorCode
-import com.dailyview.api.generated.types.AuthToken
 import com.dailyview.api.generated.types.LoginInput
 import com.dailyview.api.service.auth.JwtDto
 import com.dailyview.api.service.auth.RefreshTokenService
