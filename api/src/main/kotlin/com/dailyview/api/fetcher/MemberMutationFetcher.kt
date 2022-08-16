@@ -15,12 +15,10 @@ import com.netflix.graphql.dgs.DgsDataFetchingEnvironment
 import com.netflix.graphql.dgs.DgsMutation
 import com.netflix.graphql.dgs.InputArgument
 import com.netflix.graphql.dgs.internal.DgsWebMvcRequestData
-import javax.servlet.ServletRequest
-import javax.servlet.http.Cookie
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.CookieValue
 import org.springframework.web.context.request.ServletWebRequest
-
+import javax.servlet.http.Cookie
 
 @DgsComponent
 class MemberMutationFetcher(
@@ -43,7 +41,6 @@ class MemberMutationFetcher(
         setCookie(jwtDto, dfe)
         return AuthToken(token_type = jwtDto.tokenType, token = jwtDto.token)
     }
-
 
     @DgsMutation(field = DgsConstants.MUTATION.Reissue)
     fun reissue(

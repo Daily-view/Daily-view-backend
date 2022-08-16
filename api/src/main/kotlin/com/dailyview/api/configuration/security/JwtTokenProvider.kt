@@ -49,7 +49,7 @@ class JwtTokenProvider(
             .claim(CLAIM_AUTHORITIES_KEY, authorities[0])
             .setIssuedAt(now)
             .signWith(jwtKey, SignatureAlgorithm.HS512)
-            .compact();
+            .compact()
         return JwtDto(tokenType = BEARER_TYPE, token = accessToken, refreshToken = refreshToken)
     }
 

@@ -1,7 +1,5 @@
 package com.dailyview.api.service.auth
 
-import com.dailyview.api.configuration.security.JwtTokenProvider
-import com.dailyview.domain.entity.MemberRepository
 import com.dailyview.domain.entity.redis.MemberRefreshToken
 import com.dailyview.domain.entity.redis.MemberRefreshTokenRepository
 import org.springframework.stereotype.Service
@@ -21,6 +19,4 @@ class RefreshTokenService(
         refreshTokenRepository.delete(old)
         refreshTokenRepository.save(MemberRefreshToken(tokenValue = newToken, memberId = old.memberId))
     }
-
-
 }
