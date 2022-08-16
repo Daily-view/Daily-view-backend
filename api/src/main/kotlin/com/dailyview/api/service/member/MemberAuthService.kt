@@ -8,6 +8,8 @@ import com.dailyview.api.generated.types.LoginInput
 import com.dailyview.api.service.auth.JwtDto
 import com.dailyview.api.service.auth.RefreshTokenService
 import com.dailyview.domain.entity.MemberRepository
+import com.dailyview.domain.entity.redis.MemberRefreshTokenRepository
+import io.jsonwebtoken.JwtException
 import org.springframework.security.authentication.BadCredentialsException
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
@@ -21,7 +23,8 @@ class MemberAuthService(
     private val authenticationManagerBuilder: AuthenticationManagerBuilder,
     private val jwtTokenProvider: JwtTokenProvider,
     private val refreshTokenService: RefreshTokenService,
-    private val memberRepository: MemberRepository
+    private val memberRepository: MemberRepository,
+    private val refreshTokenRepository: MemberRefreshTokenRepository,
 ) {
 
     @Transactional(readOnly = true)
@@ -38,5 +41,27 @@ class MemberAuthService(
         } catch (e: BadCredentialsException) {
             throw BusinessException(ErrorCode.CHECK_YOUR_ACCOUNT, "비밀번호를 확인해주세요.")
         }
+    }
+
+    fun reisuue(refreshToken: String): JwtDto? {
+        if (!jwtTokenProvider.validation(refreshToken)) {
+            throw BusinessException(ErrorCode.INVALID_JWT_TOKEN, "유효하지 않은 토큰입니다.")
+        }
+
+        var authentication: Authentication
+        try {
+            authentication = jwtTokenProvider.getAuthentication(refreshToken)
+        } catch (e: JwtException) {
+            throw BusinessException(ErrorCode.INVALID_JWT_TOKEN, "유효하지 않은 토큰입니다.")
+        }
+        val member = memberRepository.findById(authentication.name.toLong()).orElseThrow {
+            BusinessException(ErrorCode.MEMBER_DOES_NOT_EXISTS, "존재하지 않는 유저입니다. id: ${authentication.name}")
+        }
+
+        val memberRefreshToken = refreshTokenRepository.findByTokenValueAndMemberId(refreshToken, member.id!!)
+            ?: return null
+        val generateTokenDto = jwtTokenProvider.generateTokenDto(authentication)
+        refreshTokenService.updateRefreshToken(memberRefreshToken, generateTokenDto.refreshToken)
+        return generateTokenDto
     }
 }

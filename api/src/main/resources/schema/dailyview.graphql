@@ -3,4 +3,5 @@ scalar DateTime
 type Mutation {
     createMember(input: CreateMemberInput!): Boolean
     login(input: LoginInput!): AuthToken
+    reissue: AuthToken
 }

@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository
 interface MemberRefreshTokenRepository : CrudRepository<MemberRefreshToken, String> {
 
     fun findByMemberId(memberId: Long): MemberRefreshToken?
+
+    fun findByTokenValueAndMemberId(token: String, memberId: Long): MemberRefreshToken?
 }
