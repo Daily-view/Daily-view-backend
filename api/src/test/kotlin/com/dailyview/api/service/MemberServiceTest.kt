@@ -3,6 +3,7 @@ package com.dailyview.api.service
 import com.dailyview.api.exception.BusinessException
 import com.dailyview.api.exception.ErrorCode
 import com.dailyview.api.generated.types.CreateMemberInput
+import com.dailyview.api.service.member.MemberService
 import com.dailyview.domain.entity.MemberRepository
 import com.dailyview.domain.entity.Members
 import io.kotest.assertions.throwables.shouldThrow

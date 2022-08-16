@@ -1,4 +1,4 @@
-package com.dailyview.api.service
+package com.dailyview.api.service.member
 
 import com.dailyview.api.exception.BusinessException
 import com.dailyview.api.exception.ErrorCode
