@@ -5,5 +5,5 @@ type Mutation {
     createMember(input: CreateMemberInput!): Boolean
     login(input: LoginInput!): AuthToken
     reissue: AuthToken
-    uploadImage(input: Upload!): Boolean
+    uploadImage(input: Upload!): String
 }
