@@ -2,7 +2,7 @@ package com.dailyview.api.service.member
 
 import com.dailyview.api.exception.BusinessException
 import com.dailyview.api.exception.ErrorCode
-import com.dailyview.domain.entity.MemberRepository
+import com.dailyview.domain.entity.member.MemberRepository
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.stereotype.Service

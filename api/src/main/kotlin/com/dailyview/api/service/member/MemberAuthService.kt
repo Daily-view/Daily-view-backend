@@ -6,7 +6,7 @@ import com.dailyview.api.exception.ErrorCode
 import com.dailyview.api.generated.types.LoginInput
 import com.dailyview.api.service.auth.JwtDto
 import com.dailyview.api.service.auth.RefreshTokenService
-import com.dailyview.domain.entity.MemberRepository
+import com.dailyview.domain.entity.member.MemberRepository
 import com.dailyview.domain.entity.redis.MemberRefreshTokenRepository
 import io.jsonwebtoken.JwtException
 import org.springframework.security.authentication.BadCredentialsException

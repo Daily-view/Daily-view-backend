@@ -1,6 +1,6 @@
 package com.dailyview.api.service.member
 
-import com.dailyview.domain.entity.Members
+import com.dailyview.domain.entity.member.Members
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.AuthorityUtils
 import org.springframework.security.core.userdetails.UserDetails
