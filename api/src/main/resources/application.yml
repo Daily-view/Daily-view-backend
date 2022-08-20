@@ -10,4 +10,7 @@ dgs:
 jwt:
   key: 3f0dc72659384fce9246a9d8af978ee23f0dc72659384fce9246a9d8af978ee23f0dc72659384fce9246a9d8af978ee2
 
+app:
+  firebase-configuration-file: ./serviceAccountKey.json
+  firebase-bucket: dark-room-84532.appspot.com
 
