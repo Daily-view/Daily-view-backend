@@ -4,8 +4,8 @@ import com.dailyview.api.exception.BusinessException
 import com.dailyview.api.exception.ErrorCode
 import com.dailyview.api.generated.types.CreateMemberInput
 import com.dailyview.api.service.member.MemberService
-import com.dailyview.domain.entity.MemberRepository
-import com.dailyview.domain.entity.Members
+import com.dailyview.domain.entity.member.MemberRepository
+import com.dailyview.domain.entity.member.Members
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe

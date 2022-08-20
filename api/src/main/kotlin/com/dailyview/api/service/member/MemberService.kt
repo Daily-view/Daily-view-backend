@@ -3,8 +3,8 @@ package com.dailyview.api.service.member
 import com.dailyview.api.exception.BusinessException
 import com.dailyview.api.exception.ErrorCode
 import com.dailyview.api.generated.types.CreateMemberInput
-import com.dailyview.domain.entity.MemberRepository
-import com.dailyview.domain.entity.Members
+import com.dailyview.domain.entity.member.MemberRepository
+import com.dailyview.domain.entity.member.Members
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
