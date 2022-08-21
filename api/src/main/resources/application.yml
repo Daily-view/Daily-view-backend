@@ -7,6 +7,11 @@ dgs:
       enabled: true
     path: /graphql/**
 
+spring:
+  servlet:
+    multipart.max-file-size: 10MB
+    max-request-size: 10MB
+
 jwt:
   key: 3f0dc72659384fce9246a9d8af978ee23f0dc72659384fce9246a9d8af978ee23f0dc72659384fce9246a9d8af978ee2
 

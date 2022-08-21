@@ -5,8 +5,8 @@ import com.dailyview.api.service.fb.FirebaseService
 import com.netflix.graphql.dgs.DgsComponent
 import com.netflix.graphql.dgs.DgsMutation
 import com.netflix.graphql.dgs.InputArgument
-import java.util.UUID
 import org.springframework.web.multipart.MultipartFile
+import java.util.UUID
 
 @DgsComponent
 class FileUploadDataFetcher(val firebaseService: FirebaseService) {
