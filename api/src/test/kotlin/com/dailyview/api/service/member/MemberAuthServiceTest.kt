@@ -17,5 +17,4 @@ class MemberAuthServiceTest : BehaviorSpec({
     val memberAuthService = MemberAuthService(
         authenticationManagerBuilder, jwtTokenProvider, refreshTokenService, memberRepository, refreshTokenRepository
     )
-
 })

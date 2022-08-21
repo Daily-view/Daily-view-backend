@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne
 import javax.persistence.Table
 
 @Entity
-@Table(name = "member_detail")
+@Table(name = "direct_message")
 class DirectMessage(
     @Column(nullable = true, length = 50)
     var message: String,

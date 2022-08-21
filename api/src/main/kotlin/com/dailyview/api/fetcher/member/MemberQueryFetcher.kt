@@ -1,4 +1,4 @@
-package com.dailyview.api.fetcher
+package com.dailyview.api.fetcher.member
 
 import com.netflix.graphql.dgs.DgsComponent
 

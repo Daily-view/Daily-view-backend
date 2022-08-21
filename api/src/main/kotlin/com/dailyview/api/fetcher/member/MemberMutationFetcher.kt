@@ -1,4 +1,4 @@
-package com.dailyview.api.fetcher
+package com.dailyview.api.fetcher.member
 
 import com.dailyview.api.configuration.security.REFRESH_TOKEN_EXPIRES
 import com.dailyview.api.exception.BusinessException
