@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest
 @Component
 class RequestFilter : Filter {
     override fun doFilter(request: ServletRequest?, response: ServletResponse?, chain: FilterChain?) {
-        val httpServletRequest = (request as HttpServletRequest)
-        val wrapper = CustomServletRequestWrapper(request)
-        chain?.doFilter(wrapper, response)
+        if (request is HttpServletRequest) {
+            val wrapper = CustomServletRequestWrapper(request)
+            chain?.doFilter(wrapper, response)
+        } else {
+            chain?.doFilter(request, response)
+        }
     }
 }

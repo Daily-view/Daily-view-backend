@@ -25,7 +25,7 @@ class CustomServletRequestWrapper(request: HttpServletRequest) : HttpServletRequ
                     request.setAttribute("raw", rawBody)
                 }
             } catch (e: Exception) {
-                logger.warn("not-json-body $rawBody")
+                logger.warn("not-json-body")
             }
         }
     }
