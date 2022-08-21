@@ -14,11 +14,11 @@ import javax.persistence.Table
 @Entity
 @Table(name = "members")
 class Members(
-    @Column(length = 50, unique = true)
+    @Column(nullable = false, length = 50, unique = true)
     val email: String,
-    @Column(length = 10, unique = true)
+    @Column(nullable = false, length = 10, unique = true)
     var nickname: String,
-    @Column(length = 100)
+    @Column(nullable = false, length = 100)
     var password: String
 ) : BaseTimeEntity() {
 
