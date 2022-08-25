@@ -1,5 +1,6 @@
-package com.dailyview.api.configuration
+package com.dailyview.api.filter
 
+import com.dailyview.api.configuration.CustomServletRequestWrapper
 import org.springframework.stereotype.Component
 import javax.servlet.Filter
 import javax.servlet.FilterChain

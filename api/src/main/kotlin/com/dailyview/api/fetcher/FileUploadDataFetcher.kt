@@ -9,13 +9,7 @@ import org.springframework.web.multipart.MultipartFile
 import java.util.UUID
 
 @DgsComponent
-class FileUploadDataFetcher(val firebaseService: FirebaseService) {
-
-    @DgsMutation(field = DgsConstants.MUTATION.UploadImage)
-    fun upload(@InputArgument input: MultipartFile): String {
-        return firebaseService.uploadFiles(file = input, fileName = generateUUIDFileName(file = input))
-    }
-}
+class FileUploadDataFetcher(val firebaseService: FirebaseService) 
 
 fun generateUUIDFileName(file: MultipartFile): String {
     val fileName = file.name
