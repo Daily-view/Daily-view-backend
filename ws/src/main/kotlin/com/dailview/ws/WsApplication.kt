@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class WsApplication
 
 fun main(args: Array<String>) {
-	runApplication<WsApplication>(*args)
+    runApplication<WsApplication>(*args)
 }
