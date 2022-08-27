@@ -1,2 +1,2 @@
 rootProject.name = "Daily-view-backend"
-include("api", "domain")
+include("api", "domain", "ws")

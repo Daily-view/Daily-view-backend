@@ -1,3 +1,7 @@
+logging:
+  level:
+    root: info
+
 server:
   port: 9000
 
@@ -18,4 +22,3 @@ jwt:
 app:
   firebase-configuration-file: ./serviceAccountKey.json
   firebase-bucket: dark-room-84532.appspot.com
-
